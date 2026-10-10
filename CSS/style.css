@@ -1,0 +1,407 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Instrument+Serif:ital@0;1&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Space+Grotesk:wght@300..700&display=swap');
+
+
+
+:root, [data-theme="dark"] {
+    --bg: linear-gradient(to top, #45137a, #000101);
+    --card-bg: linear-gradient(to bottom, #1e0c33, #3c1d5f);
+    --htop-bg: linear-gradient(to top, #3c1d5f, #1e0c33);
+    --input-bg: #45137a;
+    --btn-bg: #8950c6;
+    --btn-hover: #a06dd4;
+    --border: #ffffff20;
+    --border-input: #ffffff33;
+    --text: #fff;
+    --text-muted: #ffffff80;
+    --text-dim: #ffffff50;
+    --text-del: #ffffff40;
+    --link-color: #c49dff;
+    --clock-text: #45137a;
+    --clock-bg: linear-gradient(to top, #cbcbcbcd, #fff);
+    --greeting-bg: linear-gradient(to top, #cbcbcbcd, #fff);
+    --toggle-bg: #3c1d5f;
+    --toggle-icon: #ffffffc0;
+}
+
+[data-theme="light"] {
+    --bg: #f0f0f0;
+    --card-bg: linear-gradient(to bottom, #ffffff, #f0e8ff);
+    --htop-bg: linear-gradient(to top, #e0c8f5, #ede0fa);
+    --input-bg: #e8d5f5;
+    --btn-bg: #8950c6;
+    --btn-hover: #a06dd4;
+    --border: #8950c630;
+    --border-input: #8950c650;
+    --text: #1e0c33;
+    --text-muted: #1e0c3380;
+    --text-dim: #1e0c3350;
+    --text-del: #1e0c3340;
+    --link-color: #6a1fa0;
+    --clock-text: #fff;
+    --clock-bg: linear-gradient(to top, #45137a, #8950c6);
+    --greeting-bg: linear-gradient(to top, #45137a, #8950c6);
+    --toggle-bg: #e0c8f5;
+    --toggle-icon: #000;
+}
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Inter", sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: var(--bg);
+    background-attachment: fixed;
+}
+
+
+
+#theme-toggle {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    z-index: 100;
+    background: var(--toggle-bg);
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s;
+}
+#theme-toggle svg{
+    stroke: var(--toggle-icon);
+    height: 24px;
+}
+
+
+
+header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 40px 20px 30px;
+}
+
+.h-top {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    background: var(--htop-bg);
+    padding: 5px 10px 5px 5px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+}
+
+#clock {
+    font-size: 16px;
+    color: var(--clock-text);
+    background: var(--clock-bg);
+    padding: 2px 10px;
+    border-radius: 8px;
+}
+
+#date {
+    font-size: 16px;
+    color: var(--text);
+}
+
+#greeting {
+    margin-top: 10px;
+    font-size: clamp(36px, 8vw, 80px);
+    color: transparent;
+    background: var(--greeting-bg);
+    background-clip: text;
+    -webkit-background-clip: text;
+    filter: drop-shadow(0 0 20px #ffffff30);
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+.inputnamasect {
+    background: var(--input-bg);
+    padding: 4px;
+    border: 2px solid var(--border-input);
+    border-radius: 10px;
+    display: flex;
+}
+
+#inputname {
+    padding: 10px;
+    background: none;
+    border: none;
+    outline: none;
+    color: var(--text);
+}
+
+#inputname::placeholder { color: var(--text-dim); }
+
+#inputname:-webkit-autofill,
+#inputname:-webkit-autofill:hover,
+#inputname:-webkit-autofill:focus {
+    -webkit-text-fill-color: var(--text);
+    -webkit-box-shadow: 0 0 0px 1000px transparent inset;
+    box-shadow: 0 0 0px 1000px transparent inset;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+#submitnama {
+    padding: 10px 16px;
+    border-radius: 8px;
+    background: var(--btn-bg);
+    border: 1px solid var(--border);
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+#submitnama:hover { background: var(--btn-hover); }
+
+
+
+.dashboard {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 0 20px 40px;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 24px;
+    width: 100%;
+    max-width: 340px;
+    color: var(--text);
+}
+
+.card-title {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+}
+
+
+
+.pomodoro-display {
+    font-size: clamp(48px, 12vw, 72px);
+    font-weight: 800;
+    text-align: center;
+    color: transparent;
+    background: var(--greeting-bg);
+    background-clip: text;
+    -webkit-background-clip: text;
+    filter: drop-shadow(0 0 20px #ffffff20);
+    letter-spacing: 0.05em;
+    margin-bottom: 20px;
+}
+
+.pomodoro-controls {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    margin-bottom: 16px;
+}
+
+.pomodoro-controls button,
+.todo-input button,
+.ql-input button {
+    padding: 8px 16px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: var(--btn-bg);
+    color: #fff;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.2s;
+}
+
+.pomodoro-controls button:hover,
+.todo-input button:hover,
+.ql-input button:hover {
+    background: var(--btn-hover);
+}
+
+.pomodoro-set {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.pomodoro-set label {
+    font-size: 13px;
+    color: var(--text-muted);
+}
+
+.pomodoro-set input {
+    width: 60px;
+    padding: 6px 10px;
+    border-radius: 8px;
+    border: 1px solid var(--border-input);
+    background: var(--input-bg);
+    color: var(--text);
+    font-size: 14px;
+    text-align: center;
+    outline: none;
+}
+
+
+
+.todo-input {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: end;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.todo-input input,
+.ql-input input {
+    padding: 9px 12px;
+    border-radius: 8px;
+    border: 1px solid var(--border-input);
+    background: var(--input-bg);
+    color: var(--text);
+    font-size: 14px;
+    outline: none;
+}
+
+.todo-input input { flex: 1; }
+
+.todo-input input::placeholder,
+.ql-input input::placeholder { color: var(--text-dim); }
+
+#todo-list,
+#ql-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-height: 280px;
+    overflow-y: auto;
+}
+
+#todo-list::-webkit-scrollbar,
+#ql-list::-webkit-scrollbar { width: 4px; }
+
+#todo-list::-webkit-scrollbar-track,
+#ql-list::-webkit-scrollbar-track { background: transparent; }
+
+#todo-list::-webkit-scrollbar-thumb,
+#ql-list::-webkit-scrollbar-thumb {
+    background: var(--text-dim);
+    border-radius: 4px;
+}
+
+.todo-item,
+.ql-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    background: var(--border);
+    border: 1px solid var(--border-input);
+    transition: background 0.2s;
+}
+
+.todo-item:hover,
+.ql-item:hover { filter: brightness(1.1); }
+
+.todo-item input[type="checkbox"] {
+    accent-color: var(--btn-bg);
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.todo-item span {
+    flex: 1;
+    font-size: 14px;
+    color: var(--text);
+    outline: none;
+    word-break: break-word;
+}
+
+.todo-item.done span {
+    text-decoration: line-through;
+    color: var(--text-dim);
+}
+
+.todo-delete,
+.ql-delete {
+    background: none;
+    border: none;
+    color: var(--text-del);
+    cursor: pointer;
+    font-size: 12px;
+    padding: 2px 6px;
+    border-radius: 4px;
+    transition: color 0.2s, background 0.2s;
+    flex-shrink: 0;
+}
+
+.todo-delete:hover,
+.ql-delete:hover {
+    color: #fff;
+    background: #ff4d6d40;
+}
+
+
+
+.ql-input {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.ql-item a {
+    flex: 1;
+    font-size: 14px;
+    color: var(--link-color);
+    text-decoration: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.ql-item a:hover {
+    color: var(--text);
+    text-decoration: underline;
+}
+
+
+
+@media (max-width: 480px) {
+
+    .h-top {border-radius: 6px;}
+    #date, #clock {font-size: 10px;}
+    #clock {border-radius: 4px;}
+    #greeting {font-size: 32px;}
+
+    .card {max-width: 100%;}
+
+    .pomodoro-controls {flex-wrap: wrap;}
+    .pomodoro-controls button {flex: 1;}
+}
